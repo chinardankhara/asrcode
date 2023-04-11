@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "asrcode"
+version = "0.1.0"
+description = "a-z for psyc2803 project"
+authors = ["Chinar Dankhara <101128521+chinardankhara@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jiwer = "^3.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
