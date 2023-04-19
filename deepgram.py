@@ -1,10 +1,7 @@
 from deepgram import Deepgram
-import asyncio, json
+import asyncio
 import time
-import sys
-import os
 import string
-import re
 
 async def get_deepgram(filename):
     DEEPGRAM_API_KEY = '30651e81c45db3207413aa0018c1a0a52166fc55'
