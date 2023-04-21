@@ -9,7 +9,7 @@ def get_openai(filename):
     output_file = filename.split('.')[0] + '.wav'
     audio.export(output_file, format="wav")
 
-    openai.api_key = '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'
+    openai.api_key = 'INSERT-KEY-HERE'
 
     with open (output_file, 'rb') as f:
         start = time.time()
