@@ -5,7 +5,7 @@ import string
 from pydub import AudioSegment
 
 async def get_deepgram(filename):
-    DEEPGRAM_API_KEY = '30651e81c45db3207413aa0018c1a0a52166fc55'
+    DEEPGRAM_API_KEY = 'INSERT'
     MIMETYPE = 'audio/flac'
     FILE = filename
   # Initialize the Deepgram SDK

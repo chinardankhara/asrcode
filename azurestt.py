@@ -11,7 +11,7 @@ def get_azure(filename):
     audio.export(output_file, format="wav")
 
     # Set the Azure Speech-to-Text subscription key and endpoint
-    speech_key = "cdfcf14879234603ab121b2b0e6237a9"
+    speech_key = "INSERT"
     service_region = "eastus"
 
     start = time.time()

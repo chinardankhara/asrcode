@@ -6,7 +6,7 @@ from pydub import AudioSegment
 def get_assembly(filename):
     UPLOAD_ENDPOINT = "https://api.assemblyai.com/v2/upload"
     TRANSCRIPTION_ENDPOINT = "https://api.assemblyai.com/v2/transcript"
-    api_key = "944752e858aa40beb24205d8202bfd4b"
+    api_key = "INSERT"
     headers = {"authorization": api_key, "content-type": "application/json"}
 
     audio = AudioSegment.from_file(filename, format="flac")
