@@ -3,8 +3,9 @@ import numpy as np
 
 def wer(ref, hyp):
     ref, hyp = ref.strip(), hyp.strip()
-    return jiwer.wer(ref, hyp)
+    return round(jiwer.wer(ref, hyp), 3)
 
+#ref, hyp
 def levenshtein(seq1, seq2):
     seq1, seq2 = seq1.strip(), seq2.strip()
     size_x = len(seq1) + 1
@@ -30,3 +31,28 @@ def levenshtein(seq1, seq2):
                     matrix[x,y-1] + 1
                 )
     return (matrix[size_x - 1, size_y - 1])
+
+def calculate_metrics(ref_file, hyp_file):
+    temp_wer = []
+    temp_levenshtein = []
+    temp_response_time = []
+    temp_rtf = []
+
+    with open(ref_file) as f:
+        ref = f.read().split('\n')
+        ref.remove('')
+        #convert ref to dictionary
+        ref = {i[:15]: i[16:] for i in ref}
+    
+    with open(hyp_file) as f:
+        hyp = f.read().split('\n')
+        hyp.remove('')
+        hyp = {i[:15]: i[17:].split(',') for i in hyp}   
+
+    for i in ref:
+        temp_wer.append(wer(ref[i], hyp[i][0]))
+        temp_levenshtein.append(levenshtein(ref[i], hyp[i][0]))
+        temp_response_time.append(float(hyp[i][1].strip()))
+        temp_rtf.append(float(hyp[i][2].strip()))
+    
+    return temp_wer, temp_levenshtein, temp_response_time, temp_rtf
