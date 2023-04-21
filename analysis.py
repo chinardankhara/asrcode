@@ -42,12 +42,14 @@ def calculate_metrics(ref_file, hyp_file):
         ref = f.read().split('\n')
         ref.remove('')
         #convert ref to dictionary
-        ref = {i[:15]: i[16:] for i in ref}
+        ref = [i.split(' ') for i in ref]
+        ref = {i[0].strip(): ' '.join(i[1:]) for i in ref}
     
     with open(hyp_file) as f:
         hyp = f.read().split('\n')
         hyp.remove('')
-        hyp = {i[:15]: i[17:].split(',') for i in hyp}   
+        hyp = [i.split(',') for i in hyp]
+        hyp = {i[0].strip(): i[1:] for i in hyp}
 
     for i in ref:
         temp_wer.append(wer(ref[i], hyp[i][0]))
