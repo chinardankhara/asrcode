@@ -1,0 +1,410 @@
+================================================================================
+AWS BEDROCK AGENT CORE - COMPREHENSIVE API DOCUMENTATION
+================================================================================
+Documentation Source: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html
+Generated: 2026-01-20
+Purpose: Reference guide for coding agents working with AWS Bedrock Agent Core
+
+================================================================================
+1. OVERVIEW
+================================================================================
+
+Service: Amazon Bedrock AgentCore Data Plane API
+Client Name: bedrock-agentcore
+Purpose: Provides programmatic access to Bedrock agent runtime operations,
+         memory management, session handling, and event processing
+
+Client Initialization:
+    import boto3
+    client = boto3.client('bedrock-agentcore')
+
+Total Methods: 45 client operations
+Paginators: 6 available
+Service Category: AI/ML Agent Runtime & Data Plane Operations
+
+================================================================================
+2. MEMORY MANAGEMENT OPERATIONS
+================================================================================
+Purpose: Store, retrieve, update, and manage agent memory records
+
+2.1 BATCH OPERATIONS
+--------------------
+batch_create_memory_records
+    - Create multiple memory records in a single operation
+    - Use case: Bulk memory initialization
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/batch_create_memory_records.html
+
+batch_delete_memory_records
+    - Delete multiple memory records in a single operation
+    - Use case: Bulk memory cleanup
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/batch_delete_memory_records.html
+
+batch_update_memory_records
+    - Update multiple memory records in a single operation
+    - Use case: Bulk memory modifications
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/batch_update_memory_records.html
+
+2.2 SINGLE RECORD OPERATIONS
+-----------------------------
+delete_memory_record
+    - Delete a single memory record
+    - Use case: Individual record removal
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/delete_memory_record.html
+
+get_memory_record
+    - Retrieve a single memory record by identifier
+    - Use case: Fetch specific memory entry
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_memory_record.html
+
+2.3 MEMORY LISTING & RETRIEVAL
+-------------------------------
+list_memory_records
+    - List all memory records with pagination support
+    - Use case: Browse memory catalog
+    - Paginator: Available (ListMemoryRecords)
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/list_memory_records.html
+
+retrieve_memory_records
+    - Query and retrieve memory records based on criteria
+    - Use case: Semantic search, filtered retrieval
+    - Paginator: Available (RetrieveMemoryRecords)
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/retrieve_memory_records.html
+
+2.4 MEMORY EXTRACTION JOBS
+---------------------------
+start_memory_extraction_job
+    - Initiate a job to extract and process memory data
+    - Use case: Asynchronous memory processing
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/start_memory_extraction_job.html
+
+list_memory_extraction_jobs
+    - List all memory extraction jobs with their status
+    - Use case: Monitor extraction job progress
+    - Paginator: Available (ListMemoryExtractionJobs)
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/list_memory_extraction_jobs.html
+
+================================================================================
+3. SESSION MANAGEMENT OPERATIONS
+================================================================================
+Purpose: Create, manage, and terminate agent runtime sessions
+
+3.1 BROWSER SESSIONS
+--------------------
+get_browser_session
+    - Retrieve details of a browser session
+    - Use case: Check browser session state
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_browser_session.html
+
+list_browser_sessions
+    - List all active browser sessions
+    - Use case: Session inventory management
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/list_browser_sessions.html
+
+start_browser_session
+    - Initialize a new browser session for agent
+    - Use case: Enable web browsing capabilities
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/start_browser_session.html
+
+stop_browser_session
+    - Terminate an active browser session
+    - Use case: Cleanup browser resources
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/stop_browser_session.html
+
+update_browser_stream
+    - Update browser session streaming configuration
+    - Use case: Modify real-time browser output
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/update_browser_stream.html
+
+3.2 CODE INTERPRETER SESSIONS
+------------------------------
+get_code_interpreter_session
+    - Retrieve code interpreter session details
+    - Use case: Check code execution environment state
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_code_interpreter_session.html
+
+list_code_interpreter_sessions
+    - List all code interpreter sessions
+    - Use case: View active code execution environments
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/list_code_interpreter_sessions.html
+
+start_code_interpreter_session
+    - Create a new code interpreter session
+    - Use case: Enable code execution capabilities
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/start_code_interpreter_session.html
+
+stop_code_interpreter_session
+    - Terminate a code interpreter session
+    - Use case: Cleanup code execution resources
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/stop_code_interpreter_session.html
+
+3.3 GENERAL SESSION OPERATIONS
+-------------------------------
+list_sessions
+    - List all sessions across types
+    - Use case: Comprehensive session monitoring
+    - Paginator: Available (ListSessions)
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/list_sessions.html
+
+stop_runtime_session
+    - Stop any runtime session
+    - Use case: Generic session termination
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/stop_runtime_session.html
+
+================================================================================
+4. EVENT HANDLING OPERATIONS
+================================================================================
+Purpose: Create, retrieve, and manage agent events
+
+create_event
+    - Create a new event in the system
+    - Use case: Log agent activities, trigger workflows
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/create_event.html
+
+delete_event
+    - Delete an existing event
+    - Use case: Event cleanup, data retention
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/delete_event.html
+
+get_event
+    - Retrieve a specific event by identifier
+    - Use case: Audit trail inspection
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_event.html
+
+list_events
+    - List all events with filtering options
+    - Use case: Event stream monitoring
+    - Paginator: Available (ListEvents)
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/list_events.html
+
+================================================================================
+5. RUNTIME & AGENT OPERATIONS
+================================================================================
+Purpose: Execute agent logic and invoke runtime components
+
+invoke_agent_runtime
+    - Execute agent with input and retrieve response
+    - Use case: Core agent invocation for task execution
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/invoke_agent_runtime.html
+
+invoke_code_interpreter
+    - Execute code within interpreter session
+    - Use case: Run Python/code snippets in sandboxed environment
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/invoke_code_interpreter.html
+
+get_agent_card
+    - Retrieve agent configuration and metadata
+    - Use case: Inspect agent capabilities and settings
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_agent_card.html
+
+================================================================================
+6. AUTHENTICATION & ACCESS CONTROL
+================================================================================
+Purpose: Manage authentication tokens and resource access
+
+complete_resource_token_auth
+    - Complete token-based authentication flow
+    - Use case: Finalize OAuth/token authentication
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/complete_resource_token_auth.html
+
+get_resource_api_key
+    - Retrieve API key for resource access
+    - Use case: Service-to-service authentication
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_resource_api_key.html
+
+get_resource_oauth2_token
+    - Obtain OAuth2 token for resource
+    - Use case: OAuth2-based integrations
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_resource_oauth2_token.html
+
+get_workload_access_token
+    - Get access token for workload identity
+    - Use case: Workload identity authentication
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_workload_access_token.html
+
+get_workload_access_token_for_jwt
+    - Retrieve workload token using JWT
+    - Use case: JWT-based workload authentication
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_workload_access_token_for_jwt.html
+
+get_workload_access_token_for_user_id
+    - Get workload token for specific user ID
+    - Use case: User-scoped workload access
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_workload_access_token_for_user_id.html
+
+================================================================================
+7. UTILITY & MANAGEMENT METHODS
+================================================================================
+Purpose: Client management, pagination, and resource listing
+
+list_actors
+    - List all actors in the system
+    - Use case: Enumerate agent actors/entities
+    - Paginator: Available (ListActors)
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/list_actors.html
+
+can_paginate
+    - Check if an operation supports pagination
+    - Use case: Dynamic pagination handling
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/can_paginate.html
+
+close
+    - Close the client connection
+    - Use case: Resource cleanup
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/close.html
+
+get_paginator
+    - Get a paginator for supported operations
+    - Use case: Efficient handling of large result sets
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_paginator.html
+
+get_waiter
+    - Get a waiter for asynchronous operations
+    - Use case: Wait for operation completion
+    - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client/get_waiter.html
+
+================================================================================
+8. PAGINATORS REFERENCE
+================================================================================
+Purpose: Handle large result sets efficiently
+
+Available Paginators (6):
+--------------------------
+1. ListActors
+   - Paginate through actor listings
+   - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/paginator/ListActors.html
+
+2. ListEvents
+   - Paginate through event listings
+   - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/paginator/ListEvents.html
+
+3. ListMemoryExtractionJobs
+   - Paginate through memory extraction job listings
+   - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/paginator/ListMemoryExtractionJobs.html
+
+4. ListMemoryRecords
+   - Paginate through memory record listings
+   - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/paginator/ListMemoryRecords.html
+
+5. ListSessions
+   - Paginate through session listings
+   - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/paginator/ListSessions.html
+
+6. RetrieveMemoryRecords
+   - Paginate through retrieved memory records
+   - Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/paginator/RetrieveMemoryRecords.html
+
+Paginator Usage Example:
+    paginator = client.get_paginator('list_memory_records')
+    page_iterator = paginator.paginate()
+    for page in page_iterator:
+        # Process each page of results
+        records = page['MemoryRecords']
+
+================================================================================
+9. COMMON USAGE PATTERNS
+================================================================================
+
+9.1 BASIC AGENT INVOCATION
+---------------------------
+    import boto3
+    client = boto3.client('bedrock-agentcore')
+
+    response = client.invoke_agent_runtime(
+        agentId='agent-id',
+        sessionId='session-id',
+        inputText='User query'
+    )
+
+9.2 MEMORY MANAGEMENT WORKFLOW
+-------------------------------
+    # Create memory
+    client.batch_create_memory_records(
+        memoryRecords=[
+            {'content': 'Memory content', 'metadata': {...}}
+        ]
+    )
+
+    # Retrieve memory
+    response = client.retrieve_memory_records(
+        query='search query'
+    )
+
+    # Update memory
+    client.batch_update_memory_records(
+        updates=[
+            {'recordId': 'id', 'content': 'new content'}
+        ]
+    )
+
+9.3 SESSION LIFECYCLE
+---------------------
+    # Start session
+    session = client.start_code_interpreter_session()
+    session_id = session['sessionId']
+
+    # Use session
+    result = client.invoke_code_interpreter(
+        sessionId=session_id,
+        code='print("Hello World")'
+    )
+
+    # Stop session
+    client.stop_code_interpreter_session(
+        sessionId=session_id
+    )
+
+9.4 EVENT TRACKING
+------------------
+    # Create event
+    client.create_event(
+        eventType='agent_action',
+        payload={'action': 'task_completed'}
+    )
+
+    # List events
+    paginator = client.get_paginator('list_events')
+    for page in paginator.paginate():
+        for event in page['events']:
+            print(f"Event: {event['eventType']}")
+
+================================================================================
+10. API CATEGORIES SUMMARY
+================================================================================
+
+By Functionality:
+-----------------
+[MEMORY] 9 operations - Persistent agent memory management
+[SESSION] 11 operations - Runtime session lifecycle control
+[EVENT] 4 operations - Event logging and tracking
+[RUNTIME] 3 operations - Core agent execution
+[AUTH] 6 operations - Authentication and access control
+[UTILITY] 5 operations - Client management helpers
+
+By Operation Type:
+------------------
+[CREATE/START] 7 operations - Initialize resources
+[GET/RETRIEVE] 13 operations - Fetch data
+[LIST] 9 operations - Enumerate resources
+[UPDATE] 2 operations - Modify resources
+[DELETE/STOP] 8 operations - Remove/terminate resources
+[UTILITY] 6 operations - Helper methods
+
+================================================================================
+11. REFERENCE LINKS
+================================================================================
+
+Main Documentation:
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html
+
+Client Reference:
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/client.html
+
+Paginator Reference:
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore/paginators.html
+
+AWS Bedrock Service:
+https://aws.amazon.com/bedrock/
+
+================================================================================
+END OF DOCUMENTATION
+================================================================================
